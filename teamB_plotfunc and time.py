@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 class Schrodinger:
     
     def plot(x, v_x, psi):
-            
             '''
             function to plot the wave function as a function of x 
             this function takes in (x, v_x, psi) where:
@@ -23,7 +22,8 @@ class Schrodinger:
             within this function there is also the possibility to plot the potential V(x) against x on the same graph 
             to do this reply [y] to the input of (would you like to plot potential?)
             '''
-        
+            
+            
             own_colour = input ('would you like custom colour? [y] or [n]')
             fig, ax = plt.subplots()
 
@@ -54,5 +54,12 @@ class Schrodinger:
             ax.plot(x, np.abs(psi)**2, color=colour_line)
             ax.set_xlabel("x")
             ax.set_ylabel("$|\Psi(x, t=0)|^2$", color=colour_line)
-        
+            
+            
+            
             plt.plot()
+
+    def time_div(x, v_x, psi):
+
+
+
