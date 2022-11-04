@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 class schrodinger: 
     
     def plot(x, V_x, Psi):
-        ''' function to plot the wave function as a function of x 
+            '''
+            function to plot the wave function as a function of x 
             this function takes in (x, V_x, Psi) where:
             x is the x data
             V_x is the potential
@@ -19,7 +20,8 @@ class schrodinger:
             however more are available for the full list look up matplotlib.pyplot colour options.
             
             within this function there is also the possibility to plot the potential V(x) against x on the same graph 
-            to do this reply [y] to the input of (would you like to plot potential?)'''
+            to do this reply [y] to the input of (would you like to plot potential?)
+            '''
             
             
             own_colour = input ('would you like custom colour? [y] or [n]')
