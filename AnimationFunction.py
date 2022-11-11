@@ -15,19 +15,17 @@ import matplotlib.animation as animation
 plt.rcParams["axes.labelsize"] = 16
 
 # Input parameters
-Nx = 500
 xmin = -5
 xmax = 5
 
-Nt = 250
 tmin = 0
 tmax = 20
 k = 1 
 
 # Calculate grid, potential, and initial wave function
-x_array = np.linspace(xmin, xmax, Nx)
-t_array = np.linspace(tmin, tmax, Nt)
-v_x = k * x_array ** 2
+x_array = np.linspace(xmin, xmax, 500)
+t_array = np.linspace(tmin, tmax, 250)
+v_x = k * x_array ** 2  #  this equation may need to change depending on the users input
 psi = np.exp(-(x_array+2)**2)
 
 # Calculate finite difference elements
@@ -58,6 +56,7 @@ for t in t_array:
     
 fig, ax = plt.subplots()
 
+# add colour customisation to fit in with anus interaction idea
 ax.set_xlabel("x [arb units]")
 ax.set_ylabel("$|\Psi(x, t)|$", color="C0")
 
