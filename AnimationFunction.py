@@ -6,28 +6,30 @@ Created on Fri Nov 11 11:23:07 2022
 """
 
 import numpy as np
+import subprocess
+import time
 import matplotlib.pyplot as plt
 from findiff import FinDiff
 from scipy.sparse.linalg import inv
 from scipy.sparse import eye, diags
 import matplotlib.animation as animation
 
+## Parts will be put into funcions (if they need to) once it has been added to the main code
+
 plt.rcParams["axes.labelsize"] = 16
 
 # Input parameters
-Nx = 500
 xmin = -5
 xmax = 5
 
-Nt = 250
 tmin = 0
 tmax = 20
 k = 1 
 
 # Calculate grid, potential, and initial wave function
-x_array = np.linspace(xmin, xmax, Nx)
-t_array = np.linspace(tmin, tmax, Nt)
-v_x = k * x_array ** 2
+x_array = np.linspace(xmin, xmax, 500)
+t_array = np.linspace(tmin, tmax, 250)
+v_x = k * x_array ** 2  #  this equation may need to change depending on the users input
 psi = np.exp(-(x_array+2)**2)
 
 # Calculate finite difference elements
@@ -58,6 +60,7 @@ for t in t_array:
     
 fig, ax = plt.subplots()
 
+# add colour customisation to fit in with anus interaction idea
 ax.set_xlabel("x [arb units]")
 ax.set_ylabel("$|\Psi(x, t)|$", color="C0")
 
@@ -70,6 +73,9 @@ ax.grid()
 xdata, ydata = [], []
 
 def run(psi):
+    '''
+    doc string
+    '''
     line.set_data(x_array, np.abs(psi)**2)
     return line,
 
@@ -79,10 +85,10 @@ ax.set_ylim(0, 1)
 ani = animation.FuncAnimation(fig, run, psi_list, interval=10)
 ani.save("particle_in_a_well.gif", fps=120, dpi=300)
 
-import subprocess
-import time
-
 def play_func():
+    '''
+    Doc string
+    '''
     subprocess.call(["cmd", "/c", "start", "/max", "particle_in_a_well.gif."])
     time.sleep(5)
     
