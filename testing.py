@@ -12,12 +12,14 @@ with open(second x derivative2, "r+", encoding="utf-8") as file_sd:
 
   
 def test_plot():
+    ''' Tests to see if the plot function from teamB_plotfunc is plotting properly'''
     points #coming soon
-    _plot(points)
+    plot(points)
     assert True, "An error was encountered during plot"
 
 
 def test_first_derivative():
+    ''' Tests to see if the first derivative function from 1st derivative is calculating the correct derivative'''
     responses = iter([x, x*sin(y)+y*cos(x)])
     monkeypatch.setattr('builtins.input', lambda msg: next(responses))
     first = exec(fd)
@@ -25,6 +27,7 @@ def test_first_derivative():
    
   
 def test_second_derivative():
+  ''' Tests to see if the second derivative function from second x derivative2 is calculating the correct derivative'''
     responses = iter([x, x*sin(y)+y*cos(x)])
     monkeypatch.setattr('builtins.input', lambda msg: next(responses))
     second = exec(sd)
