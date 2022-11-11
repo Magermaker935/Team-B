@@ -6,11 +6,15 @@ Created on Fri Nov 11 11:23:07 2022
 """
 
 import numpy as np
+import subprocess
+import time
 import matplotlib.pyplot as plt
 from findiff import FinDiff
 from scipy.sparse.linalg import inv
 from scipy.sparse import eye, diags
 import matplotlib.animation as animation
+
+## Parts will be put into funcions (if they need to) once it has been added to the main code
 
 plt.rcParams["axes.labelsize"] = 16
 
@@ -69,6 +73,9 @@ ax.grid()
 xdata, ydata = [], []
 
 def run(psi):
+    '''
+    doc string
+    '''
     line.set_data(x_array, np.abs(psi)**2)
     return line,
 
@@ -78,10 +85,10 @@ ax.set_ylim(0, 1)
 ani = animation.FuncAnimation(fig, run, psi_list, interval=10)
 ani.save("particle_in_a_well.gif", fps=120, dpi=300)
 
-import subprocess
-import time
-
 def play_func():
+    '''
+    Doc string
+    '''
     subprocess.call(["cmd", "/c", "start", "/max", "particle_in_a_well.gif."])
     time.sleep(5)
     
