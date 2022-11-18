@@ -1,4 +1,4 @@
-from teamB_plotfunc import plot
+from Schrodinger import plot, form, psi, potential
 import numpy as np 
 from sympy import * x, y = symbols('x y')
 import pytest
@@ -34,5 +34,17 @@ def test_second_derivative():
     assert second == -y*cos(x), "Derivative was wrong"
     
     
-
+def test_form():
+  responses = iter([R])
+  monkeypatch.setattr('builtins.input', lambda msg: next(responses))
+  form = form(90)
+  assert form == np.sin(90), "Function failed to find the correct form"
+  
+  
+def test_potential():
+  responses = iter([square_well, 5])
+  monkeypatch.setattr('builtins.input', lambda msg: next(responses))
+  potential = potential(2)
+  assert potential == 0, "Potential function encountered an error"
+  
   
